@@ -1,0 +1,27 @@
+LightSelect
+===========
+
+LightSelect is a lightweight macOS selection toolbar utility.
+
+Cherry Studio Attribution
+-------------------------
+
+LightSelect's selection-toolbar interaction and visual direction were
+implemented with reference to Cherry Studio's selection assistant.
+
+Cherry Studio repository:
+https://github.com/CherryHQ/cherry-studio
+
+Cherry Studio is licensed under the GNU Affero General Public License v3.0.
+The Cherry Studio logo asset used in this repository was copied from:
+
+src/renderer/assets/images/logo.png
+
+This project is not affiliated with, endorsed by, or maintained by Cherry
+Studio or CherryHQ.
+
+Secrets
+-------
+
+API keys are not stored in this repository. LightSelect reads API settings
+from local macOS UserDefaults at runtime.

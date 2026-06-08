@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cherry Studio Selection Toolbar Colors</title>
+  <style>
+    :root {
+      --color-primary: #00b96b;
+      --selection-toolbar-height: 36px;
+      --selection-toolbar-font-size: 14px;
+      --selection-toolbar-logo-size: 22px;
+      --selection-toolbar-logo-border-color: rgba(255, 255, 255, 0.2);
+      --selection-toolbar-logo-padding: 0 6px 0 8px;
+      --selection-toolbar-border-radius: 10px;
+      --selection-toolbar-box-shadow: 0px 2px 3px rgba(50, 50, 50, 0.3);
+      --selection-toolbar-background: rgba(20, 20, 20, 0.95);
+      --selection-toolbar-buttons-border-color: rgba(255, 255, 255, 0.2);
+      --selection-toolbar-button-text-color: rgba(255, 255, 245, 0.9);
+      --selection-toolbar-button-bgcolor-hover: #333333;
+    }
+
+    .light {
+      --selection-toolbar-box-shadow: 0px 2px 3px rgba(50, 50, 50, 0.1);
+      --selection-toolbar-background: rgba(245, 245, 245, 0.95);
+      --selection-toolbar-buttons-border-color: rgba(0, 0, 0, 0.08);
+      --selection-toolbar-logo-border-color: rgba(0, 0, 0, 0.08);
+      --selection-toolbar-button-text-color: rgba(0, 0, 0, 1);
+      --selection-toolbar-button-bgcolor-hover: rgba(0, 0, 0, 0.04);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #f4f4f5, #d8dce3);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      color: #1f2328;
+    }
+
+    main {
+      width: min(920px, calc(100vw - 48px));
+      display: grid;
+      gap: 28px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+
+    .row {
+      display: grid;
+      gap: 12px;
+      padding: 22px;
+      border: 1px solid rgba(0, 0, 0, .08);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .72);
+    }
+
+    .sample-bg {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #fff, #eef2f7);
+    }
+
+    .sample-bg.dark {
+      background: linear-gradient(90deg, #242424, #111);
+    }
+
+    .toolbar {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: stretch;
+      height: 76px;
+      border-radius: 32px;
+      box-shadow: 0 8px 20px rgba(50, 50, 50, 0.12);
+      background: rgba(245, 245, 245, 0.95);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      user-select: none;
+      box-sizing: border-box;
+      overflow: hidden;
+      margin: 2px 3px 5px 3px;
+      padding: 6px 22px 8px 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 18px;
+    }
+
+    .logo-mark {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .action {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 2px;
+      color: #000;
+      font-size: 24px;
+      line-height: 1.1;
+      transition: color .1s ease-in-out, background-color .1s ease-in-out;
+    }
+
+    .action svg {
+      width: 30px;
+      height: 30px;
+      stroke-width: 2.5;
+    }
+
+    .action.hover,
+    .action:hover {
+      color: var(--color-primary);
+      background-color: var(--selection-toolbar-button-bgcolor-hover);
+    }
+
+    .swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .swatch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    .chip {
+      width: 28px;
+      height: 18px;
+      border-radius: 5px;
+      border: 1px solid rgba(0,0,0,.12);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Cherry Studio selection toolbar color preview</h1>
+
+    <section class="row">
+      <strong>Light selection toolbar matching your screenshot</strong>
+      <div class="sample-bg">
+        <div class="toolbar">
+          <div class="logo"><img class="logo-mark" src="Resources/cherry-logo.png" alt="Cherry Studio logo"></div>
+          <div class="actions">
+            <div class="action">文A 翻译</div>
+            <div class="action">▣ 解释</div>
+            <div class="action">☷ 总结</div>
+            <div class="action">○ 搜索</div>
+            <div class="action">⧉ 复制</div>
+            <div class="action">〞引用</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="row">
+      <strong>Extracted color variables</strong>
+      <div class="swatches">
+        <div class="swatch"><span class="chip" style="background:rgba(20,20,20,.95)"></span> dark background rgba(20,20,20,.95)</div>
+        <div class="swatch"><span class="chip" style="background:#333"></span> dark hover #333333</div>
+        <div class="swatch"><span class="chip" style="background:rgba(255,255,245,.9)"></span> dark text rgba(255,255,245,.9)</div>
+        <div class="swatch"><span class="chip" style="background:rgba(245,245,245,.95)"></span> light background rgba(245,245,245,.95)</div>
+        <div class="swatch"><span class="chip" style="background:rgba(0,0,0,.04)"></span> light hover rgba(0,0,0,.04)</div>
+        <div class="swatch"><span class="chip" style="background:#00b96b"></span> primary hover text #00b96b</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
