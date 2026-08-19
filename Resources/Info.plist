@@ -9,6 +9,8 @@
   <string>LightSelect</string>
   <key>CFBundleIdentifier</key>
   <string>local.ccw3.LightSelect</string>
+  <key>CFBundleIconFile</key>
+  <string>LightSelect.icns</string>
   <key>CFBundleInfoDictionaryVersion</key>
   <string>6.0</string>
   <key>CFBundleName</key>
@@ -16,9 +18,9 @@
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleShortVersionString</key>
-  <string>0.1.0</string>
+  <string>2.0.0</string>
   <key>CFBundleVersion</key>
-  <string>1</string>
+  <string>200</string>
   <key>LSMinimumSystemVersion</key>
   <string>13.0</string>
   <key>LSUIElement</key>

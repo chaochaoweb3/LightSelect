@@ -1,0 +1,5 @@
+LightSelect 2.0 UI comparison
+Pinned Cherry source: 83d9d6325f7a00ab03a59eea31d0c943b3acf530
+Renderer baseline: Chromium 1440x900, Translate hover, toolbar element
+Candidate renderer: system WKWebView, light toolbar fixture
+PIXEL_DIFF reference=352x36 candidate=720x86 normalized=352x36 differing=7241/12672 (57.142%) mean_abs_rgba=63.873
