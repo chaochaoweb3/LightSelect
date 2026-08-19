@@ -1,5 +1,12 @@
 .build/
 build/
+.worktrees/
+Web/node_modules/
+Web/coverage/
+Web/.vite/
+Resources/Web/
+.playwright-cli/
+Web/.playwright-cli/
 .DS_Store
 *.log
 *.xcuserstate
@@ -7,5 +14,12 @@ build/
 
 # Local runtime data and secrets should stay in macOS UserDefaults/keychain,
 # not in the repository.
+.env
+.env.*
+!.env.example
 *.local
 *.secret
+*.pem
+*.key
+*.p12
+*.pfx

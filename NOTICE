@@ -3,19 +3,40 @@ LightSelect
 
 LightSelect is a lightweight macOS selection toolbar utility.
 
-Cherry Studio Attribution
--------------------------
+Cherry Studio Selection Assistant
+---------------------------------
 
-LightSelect's selection-toolbar interaction and visual direction were
-implemented with reference to Cherry Studio's selection assistant.
+LightSelect 2.0 copies and adapts selection-assistant source code from Cherry
+Studio. The pinned upstream files, their SHA-256 hashes, and adaptation boundary
+are recorded in:
 
-Cherry Studio repository:
-https://github.com/CherryHQ/cherry-studio
+Vendor/CherryStudioSelection/UPSTREAM.md
+Vendor/CherryStudioSelection/manifest.txt
 
-Cherry Studio is licensed under the GNU Affero General Public License v3.0.
-The Cherry Studio logo asset used in this repository was copied from:
+Upstream repository: https://github.com/CherryHQ/cherry-studio
+Pinned commit: 83d9d6325f7a00ab03a59eea31d0c943b3acf530
+License: GNU Affero General Public License v3.0
+License copy: Vendor/CherryStudioSelection/LICENSE
 
-src/renderer/assets/images/logo.png
+Copied material includes the selection toolbar, action window, selection
+settings, related tests and types, selection service behavior, theme details,
+and the Cherry Studio logo. Electron IPC, application preferences, provider
+services, and window management are adapted for LightSelect's native Swift and
+WebKit architecture.
+
+selection-hook
+--------------
+
+LightSelect 2.0 copies and adapts the macOS implementation from selection-hook
+2.0.3. The pinned upstream files and hashes are recorded in:
+
+Vendor/SelectionHookNative/UPSTREAM.md
+Vendor/SelectionHookNative/manifest.txt
+
+Upstream repository: https://github.com/0xfullex/selection-hook
+Pinned commit: ff85000e98ab65ab111e2274c385eb3b86c7e19f
+License: MIT
+License copy: Vendor/SelectionHookNative/LICENSE
 
 This project is not affiliated with, endorsed by, or maintained by Cherry
 Studio or CherryHQ.
@@ -23,5 +44,5 @@ Studio or CherryHQ.
 Secrets
 -------
 
-API keys are not stored in this repository. LightSelect reads API settings
-from local macOS UserDefaults at runtime.
+API keys are not stored in this repository. LightSelect stores non-secret API
+settings in macOS UserDefaults and keeps the API key in macOS Keychain.

@@ -1,0 +1,638 @@
+@import './cherry-theme.css';
+
+html,
+body,
+#root {
+  width: 100% !important;
+  min-width: 0;
+  height: 100% !important;
+  min-height: 0;
+  overflow: hidden !important;
+}
+
+body {
+  background: var(--background) !important;
+  color: var(--foreground);
+  overflow: hidden !important;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.lightselect-settings-shell {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 184px minmax(0, 1fr);
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.lightselect-settings-sidebar {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  background: var(--card);
+  padding: 14px 10px 12px;
+}
+
+.lightselect-settings-brand {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 9px;
+  padding: 3px 7px 13px;
+}
+
+.lightselect-settings-brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+}
+
+.lightselect-settings-brand div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.lightselect-settings-brand strong {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.lightselect-settings-brand span {
+  overflow: hidden;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  line-height: 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lightselect-settings-nav {
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lightselect-settings-nav button {
+  display: flex;
+  width: 100%;
+  height: 38px;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  padding: 0 9px;
+  color: var(--muted-foreground);
+  font-size: 13px;
+  text-align: left;
+}
+
+.lightselect-settings-nav button:hover {
+  background: var(--accent);
+  color: var(--foreground);
+}
+
+.lightselect-settings-nav button[aria-current='page'] {
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.lightselect-settings-nav svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+}
+
+.lightselect-language {
+  display: grid;
+  height: 32px;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  padding: 2px;
+}
+
+.lightselect-language button {
+  overflow: hidden;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lightselect-language button[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.lightselect-settings-content {
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.lightselect-page-header {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--background) 96%, transparent);
+  padding: 15px 24px;
+}
+
+.lightselect-page-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 26px;
+}
+
+.lightselect-page-header p {
+  margin: 2px 0 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.lightselect-save-status {
+  display: inline-flex;
+  width: 94px;
+  min-height: 22px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+
+.lightselect-save-status svg {
+  width: 14px;
+  height: 14px;
+}
+
+.lightselect-save-status.is-saving svg {
+  animation: lightselect-spin 0.9s linear infinite;
+}
+
+.lightselect-save-status.is-failed {
+  color: var(--destructive, #c83b36);
+}
+
+.lightselect-page-header-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.lightselect-settings-close {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted-foreground);
+}
+
+.lightselect-settings-close:hover {
+  background: var(--accent);
+  color: var(--foreground);
+}
+
+.lightselect-settings-close:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 1px;
+}
+
+.lightselect-settings-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.lightselect-settings-page {
+  width: min(100%, 760px);
+  padding: 8px 24px 32px;
+}
+
+.lightselect-settings-page > .lightselect-settings-section:first-child {
+  padding-top: 8px;
+}
+
+.lightselect-settings-section {
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 4px 10px;
+}
+
+.lightselect-settings-section > h2 {
+  margin: 0;
+  padding: 7px 0 9px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.lightselect-setting-row {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 16px;
+  border-top: 1px solid var(--border);
+  padding: 9px 0;
+}
+
+.lightselect-setting-row > button,
+.lightselect-about-product + .lightselect-setting-row button {
+  min-height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  padding: 0 11px;
+  color: var(--foreground);
+  font-size: 12px;
+}
+
+.lightselect-setting-row > input[type='range'] {
+  width: min(180px, 38vw);
+  accent-color: var(--primary);
+}
+
+.lightselect-radio-set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px 12px;
+}
+
+.lightselect-radio-set label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.lightselect-radio-set input {
+  accent-color: var(--primary);
+}
+
+.lightselect-about-product {
+  display: flex;
+  height: 64px;
+  align-items: baseline;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+
+.lightselect-about-product strong { font-size: 18px; }
+.lightselect-about-product span { color: var(--muted-foreground); font-size: 12px; }
+.lightselect-row-copy { display: flex; min-width: 0; flex: 1; align-items: flex-start; gap: 9px; }
+.lightselect-row-copy > svg { width: 17px; height: 17px; flex: 0 0 auto; color: var(--primary); }
+
+@keyframes lightselect-spin { to { transform: rotate(360deg); } }
+
+.lightselect-switch {
+  position: relative;
+  display: inline-flex;
+  width: 36px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.lightselect-switch input {
+  position: absolute;
+  opacity: 0;
+}
+
+.lightselect-switch span {
+  width: 100%;
+  border-radius: 999px;
+  background: var(--muted);
+  box-shadow: inset 0 0 0 1px var(--border);
+  transition: background-color 120ms ease;
+}
+
+.lightselect-switch span::after {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--foreground-disabled);
+  content: '';
+  transition: transform 120ms ease, background-color 120ms ease;
+}
+
+.lightselect-switch input:checked + span {
+  background: var(--primary);
+}
+
+.lightselect-switch input:checked + span::after {
+  transform: translateX(16px);
+  background: var(--primary-foreground);
+}
+
+.lightselect-switch input:focus-visible + span {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.lightselect-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--foreground);
+  font-size: 13px;
+}
+
+.lightselect-field input,
+.lightselect-field textarea,
+.lightselect-dialog > textarea {
+  width: 100%;
+  border: 1px solid var(--input);
+  border-radius: 6px;
+  background: var(--background);
+  padding: 7px 9px;
+  color: var(--foreground);
+  outline: none;
+}
+
+.lightselect-field input:focus,
+.lightselect-field textarea:focus,
+.lightselect-dialog > textarea:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--ring) 20%, transparent);
+}
+
+.lightselect-field-control {
+  position: relative;
+  display: flex;
+  min-width: 0;
+}
+
+.lightselect-field-control > input {
+  min-width: 0;
+  padding-right: 40px;
+}
+
+.lightselect-field-control > button {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  display: inline-flex;
+  width: 34px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-left: 1px solid var(--border);
+  border-radius: 0 5px 5px 0;
+  background: var(--background);
+  color: var(--muted-foreground);
+}
+
+.lightselect-field-control > button:hover {
+  background: var(--accent);
+  color: var(--foreground);
+}
+
+.lightselect-field-control svg,
+.lightselect-api-connection svg,
+.lightselect-api-status svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+
+.is-spinning {
+  animation: lightselect-spin 0.9s linear infinite;
+}
+
+.lightselect-model-combobox {
+  position: relative;
+}
+
+.lightselect-model-list {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  max-height: 176px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--popover);
+  padding: 4px;
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.14);
+}
+
+.lightselect-model-list button {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  padding: 5px 7px;
+  color: var(--foreground);
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lightselect-model-list button:hover,
+.lightselect-model-list button[aria-selected='true'] {
+  background: var(--accent);
+}
+
+.lightselect-api-connection {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 12px;
+}
+
+.lightselect-api-connection > button {
+  display: inline-flex;
+  height: 34px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--background);
+  padding: 0 11px;
+  color: var(--foreground);
+}
+
+.lightselect-api-connection > button:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+.lightselect-api-status {
+  display: inline-flex;
+  min-height: 20px;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.lightselect-api-status.is-success { color: #21845a; }
+.lightselect-api-status.is-error { color: var(--destructive, #c83b36); }
+
+.lightselect-api-advanced {
+  border-top: 1px solid var(--border);
+  padding-top: 9px;
+}
+
+.lightselect-api-advanced summary {
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 12px;
+  user-select: none;
+}
+
+.lightselect-api-advanced[open] summary {
+  margin-bottom: 10px;
+}
+
+.lightselect-modal {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0 0 0 / 0.35);
+  padding: 16px;
+}
+
+.lightselect-dialog {
+  display: flex;
+  max-height: calc(100vh - 32px);
+  flex-direction: column;
+  gap: 13px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--popover);
+  padding: 18px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.22);
+}
+
+.lightselect-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.lightselect-dialog-footer button {
+  min-width: 64px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 12px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .lightselect-settings-shell {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .lightselect-settings-sidebar {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) auto;
+    grid-template-rows: 42px 44px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 6px 10px 0;
+  }
+
+  .lightselect-settings-brand { min-height: 36px; padding: 0 5px 5px; }
+  .lightselect-settings-brand img { width: 24px; height: 24px; }
+  .lightselect-settings-brand span { display: none; }
+  .lightselect-language { width: 150px; height: 30px; }
+
+  .lightselect-settings-nav {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    gap: 2px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .lightselect-settings-nav button {
+    width: auto;
+    min-width: max-content;
+    height: 34px;
+    padding: 0 9px;
+  }
+
+  .lightselect-page-header { min-height: 72px; padding: 12px 16px; }
+  .lightselect-page-header h1 { font-size: 18px; }
+  .lightselect-page-header p { max-width: 300px; }
+  .lightselect-settings-page { padding: 6px 16px 24px; }
+
+  .lightselect-choice-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lightselect-choice-row > :last-child {
+    justify-content: flex-start;
+  }
+}

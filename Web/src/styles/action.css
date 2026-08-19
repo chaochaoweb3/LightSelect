@@ -1,0 +1,70 @@
+@import './cherry-theme.css';
+
+#root {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.lightselect-markdown {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.lightselect-markdown > :first-child {
+  margin-top: 0;
+}
+
+.lightselect-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.lightselect-markdown p,
+.lightselect-markdown ul,
+.lightselect-markdown ol,
+.lightselect-markdown pre,
+.lightselect-markdown blockquote {
+  margin: 0.65em 0;
+}
+
+.lightselect-markdown ul,
+.lightselect-markdown ol {
+  padding-left: 1.5em;
+}
+
+.lightselect-markdown ul {
+  list-style: disc;
+}
+
+.lightselect-markdown ol {
+  list-style: decimal;
+}
+
+.lightselect-markdown code {
+  border-radius: 4px;
+  background: var(--inline-code);
+  padding: 0.1em 0.3em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.lightselect-markdown pre {
+  overflow-x: auto;
+  border-radius: 6px;
+  background: var(--code-block);
+  padding: 0.75rem;
+}
+
+.lightselect-markdown pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.lightselect-markdown blockquote {
+  border-left: 3px solid var(--border-strong);
+  padding-left: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.lightselect-markdown a {
+  color: var(--link);
+  text-decoration: underline;
+}
